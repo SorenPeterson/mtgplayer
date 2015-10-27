@@ -1,0 +1,28 @@
+<body>
+</body>
+
+<template name="Layout">
+	{{> Header}}
+</template>
+
+<template name="Header">
+	{{> loginButtons}}
+</template>
+
+<template name="Index">
+	<div id="index">
+		<h1>MTG Player</h1>
+		<p>Built by Soren Peterson</p>
+		{{> loginButtons}}
+		<a href="/decks">My Decks</a>
+	</div>
+</template>
+
+<template name="Decks">
+	{{#each decks}}
+	{{/each}}
+</template>
+
+<template name="NewDeck">
+</template>
+
