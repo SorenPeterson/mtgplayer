@@ -3,6 +3,7 @@
 
 <template name="Layout">
 	{{> Header}}
+	{{> yield}}
 </template>
 
 <template name="Header">
@@ -23,6 +24,11 @@
 	{{/each}}
 </template>
 
-<template name="NewDeck">
+<template name="EditDeck">
+	{{#with deck}}
+		<form>
+			<input placeholder="Name"/>
+		</form>
+	{{/with}}
 </template>
 
