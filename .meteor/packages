@@ -17,9 +17,9 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 iron:router
-grigio:babel
 accounts-base
 accounts-password
 accounts-ui
 underscore
 less
+mquandalle:harmony
