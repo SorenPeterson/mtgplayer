@@ -33,6 +33,11 @@ Template.CardPicker.events({
 	'keyup input'(evt, tmpl) {
 		Picker.query.set(evt.target.value);
 	},
+	'submit form'(evt, tmpl) {
+		evt.preventDefault();
+		var regex = new RegExp(Picker.query.get(), 'i');
+		Picker.close(Cards.findOne({name: {$regex: regex}}, {limit: 10}).name);
+	},
 	'click .result'(evt, tmpl) {
 		Picker.close(this.name);
 	},
