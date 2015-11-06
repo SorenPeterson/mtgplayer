@@ -14,12 +14,12 @@ window.Picker = {
 			this.hollaback = hollaback;
 		}
 	},
-	close() {
+	close(name) {
 		if(this.isOpen()) {
 			Blaze.remove(this.view);
 			delete this.view;
-			if(typeof hollaback === 'function') {
-				this.hollaback();
+			if(typeof this.hollaback === 'function') {
+				this.hollaback(name);
 			}
 		}
 	},
@@ -33,7 +33,8 @@ Template.CardPicker.events({
 	'keyup input'(evt, tmpl) {
 		Picker.query.set(evt.target.value);
 	},
-	'click .close'(evt, tmpl) {
+	'click .result'(evt, tmpl) {
+		Picker.close(this.name);
 	},
 });
 
