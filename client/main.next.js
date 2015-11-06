@@ -32,12 +32,15 @@ window.Picker = {
 Template.CardPicker.events({
 	'keyup input'(evt, tmpl) {
 		Picker.query.set(evt.target.value);
-	}
+	},
+	'click .close'(evt, tmpl) {
+	},
 });
 
 Template.CardPicker.helpers({
 	results() {
-		return Cards.find({});
+		var regex = new RegExp(Picker.query.get(), 'i');
+		return Cards.find({name: {$regex: regex}}, {limit: 10});
 	}
 });
 

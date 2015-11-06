@@ -20,12 +20,14 @@
 </template>
 
 <template name="CardPicker">
-	<input type="text"/>
-	<p>
-		{{#each results}}
+	<form>
+		<input type="text"/>
+	</form>
+	{{#each results}}
+		<p>
 			{{name}}
-		{{/each}}
-	</p>
+		</p>
+	{{/each}}
 </template>
 
 <template name="Decks">
