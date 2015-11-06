@@ -21,3 +21,17 @@ Decks.allow({
 	},
 });
 
+Meteor.startup(function () {
+	if(Cards.find({}).count() < 1000) {
+		HTTP.get(Meteor.absoluteUrl('mtg.json'), function(err, result) {
+			if(Cards.find().count() < 15652) {
+				Cards.remove({});
+				for(var i in result.data) {
+					Cards.insert(result.data[i]);
+				}
+				console.log(typeof result.data);
+			}
+		});
+	}
+});
+
