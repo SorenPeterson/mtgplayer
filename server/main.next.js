@@ -1,5 +1,15 @@
+Meteor.publish('cards', function() {
+	return Cards.find({});
+});
+
+Cards.allow({
+	insert(userId, card) {
+		return true;
+	}
+});
+
 Meteor.publish('decks', function() {
-	return Decks.find();
+	return Decks.find({});
 });
 
 Decks.allow({

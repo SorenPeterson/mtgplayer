@@ -19,6 +19,15 @@
 	</div>
 </template>
 
+<template name="CardPicker">
+	<input type="text"/>
+	<p>
+		{{#each results}}
+			{{name}}
+		{{/each}}
+	</p>
+</template>
+
 <template name="Decks">
 	{{#each decks}}
 	{{/each}}
