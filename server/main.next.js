@@ -19,6 +19,9 @@ Decks.allow({
 	remove(userId, deck) {
 		return userId === deck.user_id;
 	},
+	update(userId, deck) {
+		return userId === deck.user_id;
+	},
 });
 
 Meteor.startup(function () {

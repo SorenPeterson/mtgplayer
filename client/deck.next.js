@@ -29,13 +29,12 @@ Template.EditDeck.events({
 		var params = tmpl.findAll('input');
 		params = _(params).reduce((obj, item) => {
 			if(item.name.length > 0) {
-				obj[item.name] = {
-					$set: item.value
-				};
+				obj[item.name] = item.value;
 			}
 			return obj;
 		}, {});
-		debugger;
+		params = {$set: params};
+		Decks.update({_id: Session.get('deck-id')}, params);
 	}
 });
 
