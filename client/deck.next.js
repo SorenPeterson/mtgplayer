@@ -1,17 +1,26 @@
 Template.Decks.helpers({
 	decks() {
 		return Decks.find({});
-	}
+	},
+});
+
+Template.Decks.events({
+	'click button'(evt, tmpl) {
+		Decks.insert({user_id: Meteor.userId(), cards: [], name: "Untitled"});
+	},
+	'click .deck'(evt, tmpl) {
+		Session.set('deck-id', this._id);
+		Router.go('/editdeck');
+	},
 });
 
 Template.EditDeck.onRendered(function() {
-	console.log('hi');
 });
 
 Template.EditDeck.helpers({
 	deck() {
-		return Decks.find({_id: Session.get('deck-id')});
-	}
+		return Decks.findOne({_id: Session.get('deck-id')});
+	},
 });
 
 Template.EditDeck.events({
@@ -20,13 +29,13 @@ Template.EditDeck.events({
 		var params = tmpl.findAll('input');
 		params = _(params).reduce((obj, item) => {
 			if(item.name.length > 0) {
-				obj[item.name] = item.value;
+				obj[item.name] = {
+					$set: item.value
+				};
 			}
 			return obj;
 		}, {});
-		Decks.remove(Session.get('deck-id'));
-		params.user_id = Meteor.userId();
-		Decks.insert(params);
+		debugger;
 	}
 });
 

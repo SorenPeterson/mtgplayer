@@ -32,11 +32,14 @@
 
 <template name="Decks">
 	{{#each decks}}
+		<p class="deck">{{name}}</p>
 	{{/each}}
+	<button>New Deck</button>
 </template>
 
 <template name="EditDeck">
 	{{#with deck}}
+		<p>{{name}}</p>
 		<form>
 			<input name="name" placeholder="Name"/>
 			<input type="submit"/>

@@ -14,7 +14,6 @@ Router.route('/', function() {
 Router.route('/decks');
 
 Router.route('/editdeck', function () {
-	Session.set('deck-id', this.params.query.id);
 	this.render('EditDeck');
 });
 
