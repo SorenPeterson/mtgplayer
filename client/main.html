@@ -8,6 +8,8 @@
 
 <template name="Header">
 	{{> loginButtons}}
+	<a href="/decks">My Decks</a>
+	<a href="/play">Play</a>
 </template>
 
 <template name="Index">
@@ -44,6 +46,10 @@
 			<input name="name" placeholder="Name"/>
 			<input type="submit"/>
 		</form>
+		<button class="add-card">Add Card</button>
+		{{#each cards}}
+			{{this}}
+		{{/each}}
 	{{/with}}
 </template>
 

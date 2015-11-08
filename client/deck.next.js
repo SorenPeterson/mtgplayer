@@ -35,6 +35,14 @@ Template.EditDeck.events({
 		}, {});
 		params = {$set: params};
 		Decks.update({_id: Session.get('deck-id')}, params);
-	}
+	},
+	'click .add-card'(evt, tmpl) {
+		Picker.open(name => {
+			var deck = Decks.findOne({_id: Session.get('deck-id')});
+			var cards = deck.cards;
+			cards.push(name);
+			Decks.update({_id: Session.get('deck-id')}, {$set: {cards: cards}});
+		});
+	},
 });
 
