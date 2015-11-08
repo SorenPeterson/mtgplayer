@@ -7,9 +7,11 @@
 </template>
 
 <template name="Header">
-	{{> loginButtons}}
-	<a href="/decks">My Decks</a>
-	<a href="/play">Play</a>
+	<header>
+		{{> loginButtons}}
+		<a href="/decks">My Decks</a>
+		<a href="/play">Play</a>
+	</header>
 </template>
 
 <template name="Index">
@@ -33,9 +35,11 @@
 </template>
 
 <template name="Decks">
-	{{#each decks}}
-		<p class="deck">{{name}}</p>
-	{{/each}}
+	<div class="decks"><!--
+		-->{{#each decks}}<!--
+			--><div class="deck">{{name}}</div><!--
+		-->{{/each}}<!--
+	--></div>
 	<button>New Deck</button>
 </template>
 
